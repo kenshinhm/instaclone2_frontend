@@ -1,18 +1,18 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {HashRouter as Router, Switch, Route} from "react-router-dom";
 import Feed from "./feed/feed.js";
 import Auth from "./auth/auth.js";
+import * as PropTypes from "prop-types";
 
 const LoggedInRoute = () => (
     <React.Fragment>
-        <Route exact path='/' componet={Feed}/>
+        <Route exact path='/' component={Feed}/>
     </React.Fragment>
 );
 
 const LoggedOutRoute = () => (
     <React.Fragment>
-        <Route exact path='/' componet={Auth}/>
+        <Route exact path='/' component={Auth}/>
     </React.Fragment>
 );
 
