@@ -1,10 +1,17 @@
 import React from 'react';
-import {ThemeProvider} from "styled-components";
+import styled, {ThemeProvider} from "styled-components";
 import Theme from "../../styles/theme.js";
 import GlobalStyles from "../../styles/globalStyles.js";
 import AppRouter from "../../routes/routes.js";
 import {useQuery} from "react-apollo-hooks";
 import {appQuery} from "./appQuery.js";
+import {Footer} from "../footer/footer.js";
+
+const Container = styled.div`
+    margin: 0 auto;
+    max-width: 935px;
+    width: 100%;
+`;
 
 const App = () => {
     const {data: {isLoggedIn}} = useQuery(appQuery);
@@ -12,8 +19,11 @@ const App = () => {
     return (
         <ThemeProvider theme={Theme}>
             <React.Fragment>
-                <GlobalStyles/>
-                <AppRouter isLoggedIn={isLoggedIn}/>
+                <Container>
+                    <GlobalStyles/>
+                    <AppRouter isLoggedIn={isLoggedIn}/>
+                    <Footer/>
+                </Container>
             </React.Fragment>
         </ThemeProvider>
     );
