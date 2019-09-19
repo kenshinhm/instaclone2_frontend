@@ -2,33 +2,34 @@ import React, {useState} from 'react';
 import {Link, StateChanger, Container, Form,} from "./authStyle.js";
 import Input from "../../component/input/input.js";
 import Button from "../../component/button/button.js";
-
-const LoginForm = () => (
-    <form>
-        <Input placeholder={"Username"}/>
-        <Input placeholder={"Password"}/>
-        <Button text={"Log in"}/>
-    </form>
-);
-
-const SignupForm = () => (
-    <form>
-        <Input placeholder={"First name"}/>
-        <Input placeholder={"Last name"}/>
-        <Input placeholder={"Email"}/>
-        <Input placeholder={"Username"}/>
-        <Input placeholder={"Password"}/>
-        <Button text={"Sign up"}/>
-    </form>
-);
+import useInput from "../../hooks/useInput.js";
 
 const Auth = () => {
     const [action, setAction] = useState("logIn");
+    const username = useInput("");
+    const password = useInput("");
+    const firstName = useInput("");
+    const lastName = useInput("");
+    const email = useInput("");
 
     return (
         <Container>
             <Form>
-                {action === "logIn" ? <LoginForm/> : <SignupForm/>}
+                {action === "logIn" ?
+                    <form>
+                        <Input placeholder={"Username"} {...username}/>
+                        <Input placeholder={"Password"} {...password} type='password'/>
+                        <Button text={"Log in"}/>
+                    </form>
+                    :
+                    <form>
+                        <Input placeholder={"First name"} {...firstName}/>
+                        <Input placeholder={"Last name"} {...lastName}/>
+                        <Input placeholder={"Email"} {...email} type='email'/>
+                        <Input placeholder={"Username"} {...username}/>
+                        <Input placeholder={"Password"} {...password} type='password'/>
+                        <Button text={"Sign up"}/>
+                    </form>}
             </Form>
             <StateChanger>
                 {action === "logIn" ?
