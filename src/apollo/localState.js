@@ -1,19 +1,19 @@
 export const defaults = {
-    isLoggedIn: localStorage.getItem("token") !== null
+    isLoggedIn: localStorage.getItem("instaclone2-token") !== null
 };
 
 export const resolvers = {
     Mutation: {
-        logIn: (_, {token}, {cache}) => {
-            localStorage.setItem("token", token);
+        logUserIn: (_, {token}, {cache}) => {
+            localStorage.setItem("instaclone2-token", token);
             cache.writeData({
                 data: {
                     isLoggedIn: true
                 }
             });
         },
-        logOut: (_, __, {cache}) => {
-            localStorage.removeItem("token");
+        logUserOut: (_, __, {cache}) => {
+            localStorage.removeItem("instaclone2-token");
             window.location.reload();
         },
     }

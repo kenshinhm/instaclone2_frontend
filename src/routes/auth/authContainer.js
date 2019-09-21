@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import useInput from "../../hooks/useInput.js";
 import {useMutation} from "react-apollo-hooks";
 import AuthPresenter from "./authPresenter.js";
-import {CREATE_ACCOUNT, LOG_IN} from "./authQueries.js";
+import {CREATE_ACCOUNT, LOG_IN, CONFIRM_SECRET, LOCAL_LOG_IN} from "./authQueries.js";
 import {toast} from "react-toastify";
 
 const Auth = () => {
@@ -25,6 +25,14 @@ const Auth = () => {
             lastName: lastName.value
         }
     });
+
+    const [confirmSecretMutation] = useMutation(CONFIRM_SECRET, {
+        variables: {
+            email: email.value,
+            secret: secret.value
+        }
+    });
+    const [localLogInMutation] = useMutation(LOCAL_LOG_IN);
 
     const onSubmit = async e => {
         e.preventDefault();
@@ -64,6 +72,17 @@ const Auth = () => {
                 }
             } else {
                 toast.error("All field are required");
+            }
+        } else if (action === "confirm") {
+            if (secret.value !== "") {
+                try {
+                    const {data: {confirmSecret: token}} = await confirmSecretMutation();
+                    if (token !== "" && token !== undefined) {
+                        await localLogInMutation({variables: {token}});
+                    }
+                } catch {
+                    toast.error("Can't confirm secret, check again");
+                }
             }
         }
     };
