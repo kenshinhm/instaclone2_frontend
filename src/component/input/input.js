@@ -7,8 +7,10 @@ const Input = ({
     required = true,
     value,
     onChange,
-    type = "text"
-}) => <Container placeholder={placeholder}
+    type = "text",
+    className
+}) => <Container className={className}
+                 placeholder={placeholder}
                  required={required}
                  value={value}
                  onChange={onChange}
