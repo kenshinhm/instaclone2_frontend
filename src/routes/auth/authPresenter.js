@@ -4,16 +4,16 @@ import Button from "../../component/button/button.js";
 import React from "react";
 
 const AuthPresenter =
-    ({action, username, firstName, lastName, email, setAction, onLogin}) => (
+    ({action, username, firstName, lastName, email, setAction, onSubmit}) => (
         <Container>
             <Form>
                 {action === "logIn" ?
-                    <form onSubmit={onLogin}>
+                    <form onSubmit={onSubmit}>
                         <Input placeholder="Email" {...email} type='email'/>
                         <Button text={"Log in"}/>
                     </form>
                     :
-                    <form onSubmit={onLogin}>
+                    <form onSubmit={onSubmit}>
                         <Input placeholder={"First name"} {...firstName}/>
                         <Input placeholder={"Last name"} {...lastName}/>
                         <Input placeholder={"Email"} {...email} type='email'/>

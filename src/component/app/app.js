@@ -6,6 +6,8 @@ import AppRouter from "../../routes/routes.js";
 import {useQuery} from "react-apollo-hooks";
 import {appQuery} from "./appQuery.js";
 import {Footer} from "../footer/footer.js";
+import {ToastContainer, toast} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Container = styled.div`
     margin: 0 auto;
@@ -23,6 +25,7 @@ const App = () => {
                     <GlobalStyles/>
                     <AppRouter isLoggedIn={isLoggedIn}/>
                     <Footer/>
+                    <ToastContainer position={toast.POSITION.BOTTOM_LEFT}/>
                 </Container>
             </React.Fragment>
         </ThemeProvider>
