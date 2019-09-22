@@ -15,6 +15,7 @@ export const HeaderContainer = styled.header`
   justify-content: center;
   align-items: center;
   padding: 25px 0;
+  z-index: 2;
 `;
 
 export const HeaderWrapper = styled.div`

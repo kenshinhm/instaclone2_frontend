@@ -16,7 +16,8 @@ const Animation = keyframes`
 `;
 
 const LoaderContainer = styled.div`
-  animation: ${Animation} 1s linear infinite;
+    margin-top: 50px;
+    animation: ${Animation} 1s linear infinite;
 `;
 
 const Loader = () => (

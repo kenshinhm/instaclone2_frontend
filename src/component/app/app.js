@@ -25,7 +25,7 @@ const App = () => {
             <>
                 <GlobalStyles/>
                 <Router>
-                    <Header/>
+                    {isLoggedIn && <Header/>}
                     <AppContainer>
                         <AppRoutes isLoggedIn={isLoggedIn}/>
                         <Footer/>

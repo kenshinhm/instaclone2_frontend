@@ -2,6 +2,7 @@ import {Container, Form, Link, StateChanger} from "./authStyle.js";
 import Input from "../../component/input/input.js";
 import Button from "../../component/button/button.js";
 import React from "react";
+import {Helmet} from "react-helmet";
 
 const AuthPresenter =
     ({
@@ -11,25 +12,40 @@ const AuthPresenter =
         <Container>
             <Form>
                 {action === "logIn" && (
-                    <form onSubmit={onSubmit}>
-                        <Input placeholder="Email" {...email} type='email'/>
-                        <Button text={"Log in"}/>
-                    </form>
+                    <>
+                        <Helmet>
+                            <title>Log In | Instaclone2</title>
+                        </Helmet>
+                        <form onSubmit={onSubmit}>
+                            <Input placeholder="Email" {...email} type='email'/>
+                            <Button text={"Log in"}/>
+                        </form>
+                    </>
                 )}
                 {action === "signUp" && (
-                    <form onSubmit={onSubmit}>
-                        <Input placeholder={"First name"} {...firstName}/>
-                        <Input placeholder={"Last name"} {...lastName}/>
-                        <Input placeholder={"Email"} {...email} type='email'/>
-                        <Input placeholder={"Username"} {...username}/>
-                        <Button text={"Sign up"}/>
-                    </form>
+                    <>
+                        <Helmet>
+                            <title>Sign Up | Instaclone2</title>
+                        </Helmet>
+                        <form onSubmit={onSubmit}>
+                            <Input placeholder={"First name"} {...firstName}/>
+                            <Input placeholder={"Last name"} {...lastName}/>
+                            <Input placeholder={"Email"} {...email} type='email'/>
+                            <Input placeholder={"Username"} {...username}/>
+                            <Button text={"Sign up"}/>
+                        </form>
+                    </>
                 )}
                 {action === "confirm" && (
-                    <form onSubmit={onSubmit}>
-                        <Input placeholder="Paste your secret" required {...secret} />
-                        <Button text={"Confirm"}/>
-                    </form>
+                    <>
+                        <Helmet>
+                            <title>Confirm Secret | Instaclone2</title>
+                        </Helmet>
+                        <form onSubmit={onSubmit}>
+                            <Input placeholder="Paste your secret" required {...secret} />
+                            <Button text={"Confirm"}/>
+                        </form>
+                    </>
                 )}
             </Form>
             {action !== "confirm" && (
