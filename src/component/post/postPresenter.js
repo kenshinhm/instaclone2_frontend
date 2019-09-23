@@ -24,7 +24,8 @@ const PostPresenter = ({
     likeCount,
     createdAt,
     newComment,
-    currentItem
+    currentItem,
+    toggleLike
 }) => (
     <PostWrapper>
         <Header>
@@ -42,7 +43,9 @@ const PostPresenter = ({
         </Files>
         <Meta>
             <Buttons>
-                <Button>{isLiked ? <HeartFullIcon/> : <HeartEmptyIcon/>}</Button>
+                <Button onClick={toggleLike}>
+                    {isLiked ? <HeartFullIcon/> : <HeartEmptyIcon/>}
+                </Button>
                 <Button>
                     <CommentIcon/>
                 </Button>

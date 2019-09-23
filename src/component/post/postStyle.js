@@ -5,6 +5,7 @@ export const PostWrapper = styled.div`
     ${props => props.theme.whiteBox};
     width: 100%;
     max-width: 600px;
+    user-select: none;
     margin-bottom: 25px;
 `;
 

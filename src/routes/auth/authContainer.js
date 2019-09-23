@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import useInput from "../../hooks/useInput.js";
 import {useMutation} from "react-apollo-hooks";
 import AuthPresenter from "./authPresenter.js";
-import {CREATE_ACCOUNT, LOG_IN, CONFIRM_SECRET, LOCAL_LOG_IN} from "./authQueries.js";
+import {CREATE_ACCOUNT, LOG_IN, CONFIRM_SECRET, LOCAL_LOG_IN} from "./authQuery.js";
 import {toast} from "react-toastify";
 
 const Auth = () => {
