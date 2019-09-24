@@ -85,3 +85,14 @@ export const Timestamp = styled.span`
     padding-bottom: 10px;
     border-bottom: ${props => props.theme.lightGreyColor} 1px solid;
 `;
+
+export const Comments = styled.ul`
+  margin-top: 10px;
+`;
+
+export const Comment = styled.li`
+  margin-bottom: 7px;
+  span {
+    margin-right: 5px;
+  }
+`;

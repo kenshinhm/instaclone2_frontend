@@ -4,7 +4,7 @@ import useInput from "../../hooks/useInput.js";
 import {HeaderColumn, HeaderContainer, HeaderLink, HeaderWrapper, SearchInput} from "./headerStyle.js";
 import {CompassIcon, HeartEmptyIcon, LogoIcon, UserIcon} from "../icons/icons.js";
 import {useQuery} from "react-apollo-hooks";
-import {ME_QUERY} from "./headerQuery.js";
+import {ME_QUERY} from "../../shared/query.js";
 
 const Header = ({history}) => {
     const search = useInput("");
@@ -23,7 +23,9 @@ const Header = ({history}) => {
                 </HeaderColumn>
                 <HeaderColumn>
                     <form onSubmit={onSearchSubmit}>
-                        <SearchInput {...search} placeholder="Search"/>
+                        <SearchInput value={search.value}
+                                     onChange={search.onChange}
+                                     placeholder="Search"/>
                     </form>
                 </HeaderColumn>
                 <HeaderColumn>

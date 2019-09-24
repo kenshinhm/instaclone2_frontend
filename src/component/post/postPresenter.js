@@ -1,7 +1,7 @@
 import React from "react";
 import {
     Button,
-    Buttons,
+    Buttons, Comment, Comments,
     File,
     Files,
     Header,
@@ -25,7 +25,10 @@ const PostPresenter = ({
     createdAt,
     newComment,
     currentItem,
-    toggleLike
+    toggleLike,
+    onKeyPress,
+    comments,
+    selfComments
 }) => (
     <PostWrapper>
         <Header>
@@ -51,8 +54,27 @@ const PostPresenter = ({
                 </Button>
             </Buttons>
             <FatText text={likeCount === 1 ? "1 like" : `${likeCount} likes`}/>
+            {comments && (
+                <Comments>
+                    {comments.map(comment => (
+                        <Comment key={comment.id}>
+                            <FatText text={comment.user.username}/>
+                            {comment.text}
+                        </Comment>
+                    ))}
+                    {selfComments.map(comment => (
+                        <Comment key={comment.id}>
+                            <FatText text={comment.user.username}/>
+                            {comment.text}
+                        </Comment>
+                    ))}
+                </Comments>
+            )}
             <Timestamp>{createdAt}</Timestamp>
-            <Textarea placeholder={"Add a comment..."} {...newComment} />
+            <Textarea placeholder={"Add a comment..."}
+                      value={newComment.value}
+                      onChange={newComment.onChange}
+                      onKeyPress={onKeyPress}/>
         </Meta>
     </PostWrapper>
 );

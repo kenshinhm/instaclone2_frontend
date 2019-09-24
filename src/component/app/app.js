@@ -1,7 +1,5 @@
 import React from 'react';
 import styled, {ThemeProvider} from "styled-components";
-import Theme from "../../styles/theme.js";
-import GlobalStyles from "../../styles/globalStyles.js";
 import AppRoutes from "../../routes/routes.js";
 import {useQuery} from "react-apollo-hooks";
 import {appQuery} from "./appQuery.js";
@@ -10,6 +8,8 @@ import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {HashRouter as Router} from "react-router-dom";
 import Header from "../header/header.js";
+import Theme from "../../shared/theme.js";
+import GlobalStyles from "../../shared/globalStyles.js";
 
 const AppContainer = styled.div`
     margin: 0 auto;
