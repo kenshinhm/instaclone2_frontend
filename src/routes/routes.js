@@ -4,7 +4,7 @@ import Feed from "./feed/feed.js";
 import Auth from "./auth/authContainer.js";
 import * as PropTypes from "prop-types";
 import Explore from "./explore/explore.js";
-import Search from "./search/search.js";
+import Search from "./search/searchContainer.js";
 import Profile from "./profile/profile.js";
 import Notification from "./notification/notification.js";
 
@@ -17,7 +17,6 @@ const LoggedInRoutes = () => (
         <Route path="/:username" component={Profile}/>
     </Switch>
 );
-
 
 const LoggedOutRoutes = () => (
     <Switch>
