@@ -21,8 +21,10 @@ const AvatarContainer = styled.div`
   ${props => getSize(props.size)}
 `;
 
-const Avatar = ({size = "sm", url}) => (
-    <AvatarContainer size={size} url={url}/>
+const Avatar = ({size = "sm", url, className}) => (
+    <AvatarContainer className={className}
+                     size={size}
+                     url={url}/>
 );
 
 Avatar.propTypes = {
