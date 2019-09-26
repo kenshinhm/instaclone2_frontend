@@ -1,9 +1,10 @@
 import React from "react";
 import * as PropTypes from "prop-types";
-import {SearchSection, SearchWrapper} from "./searchStyle.js";
+import {PostSection, SearchSection, SearchWrapper} from "./searchStyle.js";
 import FatText from "../../component/fatText/fatText.js";
 import Loader from "../../component/loader/loader.js";
 import UserCard from "../../component/userCard/userCard.js";
+import SquarePost from "../../component/squarePost/squarePost.js";
 
 const SearchPresenter = ({searchTerm, loading, data}) => {
     if (searchTerm === undefined) {
@@ -36,13 +37,19 @@ const SearchPresenter = ({searchTerm, loading, data}) => {
                         )
                     }
                 </SearchSection>
-                <SearchSection>
+                <PostSection>
                     {data.searchPost.length === 0 ? (
                         <FatText text="No Posts Found"/>
                     ) : (
-                        data.searchPost.map(post => null)
+                        data.searchPost.map(post => (
+                            <SquarePost
+                                likeCount={post.likeCount}
+                                commentCount={post.commentCount}
+                                file={post.files[0]}
+                            />
+                        ))
                     )}
-                </SearchSection>
+                </PostSection>
             </SearchWrapper>
         );
     }
