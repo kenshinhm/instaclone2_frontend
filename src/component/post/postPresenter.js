@@ -1,7 +1,7 @@
 import React from "react";
 import {
     Button,
-    Buttons, Comment, Comments,
+    Buttons, Caption, Comment, Comments,
     File,
     Files,
     Header,
@@ -15,6 +15,7 @@ import {
 import Avatar from "../avatar/avatar.js";
 import FatText from "../fatText/fatText.js";
 import {CommentIcon, HeartEmptyIcon, HeartFullIcon} from "../icons/icons.js";
+import {Link} from "react-router-dom";
 
 const PostPresenter = ({
     user: {username, avatar},
@@ -28,13 +29,16 @@ const PostPresenter = ({
     toggleLike,
     onKeyPress,
     comments,
-    selfComments
+    selfComments,
+    caption
 }) => (
     <PostWrapper>
         <Header>
             <Avatar size="sm" url={avatar}/>
             <UserColumn>
-                <FatText text={username}/>
+                <Link to={`/${username}`}>
+                    <FatText text={username}/>
+                </Link>
                 <Location>{location}</Location>
             </UserColumn>
         </Header>
@@ -54,6 +58,9 @@ const PostPresenter = ({
                 </Button>
             </Buttons>
             <FatText text={likeCount === 1 ? "1 like" : `${likeCount} likes`}/>
+            <Caption>
+                <FatText text={username}/>{caption}
+            </Caption>
             {comments && (
                 <Comments>
                     {comments.map(comment => (

@@ -7,6 +7,9 @@ export const PostWrapper = styled.div`
     max-width: 600px;
     user-select: none;
     margin-bottom: 25px;
+    a {
+        color: inherit;
+    }
 `;
 
 export const Header = styled.header`
@@ -95,4 +98,8 @@ export const Comment = styled.li`
   span {
     margin-right: 5px;
   }
+`;
+
+export const Caption = styled.div`
+  margin: 10px 0;
 `;
