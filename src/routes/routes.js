@@ -5,7 +5,7 @@ import Auth from "./auth/authContainer.js";
 import * as PropTypes from "prop-types";
 import Explore from "./explore/explore.js";
 import Search from "./search/searchContainer.js";
-import Profile from "./profile/profile.js";
+import Profile from "./profile/profileContainer.js";
 import Notification from "./notification/notification.js";
 
 const LoggedInRoutes = () => (
