@@ -17,8 +17,9 @@ import Avatar from "../../component/avatar/avatar.js";
 import FollowButton from "../../component/followButton/followButtonContainer.js";
 import FatText from "../../component/fatText/fatText.js";
 import SquarePost from "../../component/squarePost/squarePost.js";
+import Button from "../../component/button/button.js";
 
-const ProfilePresenter = ({loading, data}) => {
+const ProfilePresenter = ({loading, data, logOut}) => {
     if (loading === true) {
         return (
             <Wrapper>
@@ -53,7 +54,11 @@ const ProfilePresenter = ({loading, data}) => {
                     <HeaderColumn>
                         <UsernameRow>
                             <Username>{username}</Username>{" "}
-                            {!isSelf && <FollowButton isFollowing={isFollowing} id={id}/>}
+                            {isSelf ? (
+                                <Button onClick={logOut} text="Log Out"/>
+                            ) : (
+                                <FollowButton isFollowing={isFollowing} id={id}/>
+                            )}
                         </UsernameRow>
                         <Counts>
                             <Count>
